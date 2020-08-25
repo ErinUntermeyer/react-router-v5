@@ -1,6 +1,6 @@
-import React from 'react';
-import './image-display.css';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import './image-display.css'
+import { Link } from 'react-router-dom'
 
 const CreatureDetails = ({ id, name, image, bio, type }) => {
   return (
@@ -13,4 +13,4 @@ const CreatureDetails = ({ id, name, image, bio, type }) => {
   )
 }
 
-export default CreatureDetails;
+export default CreatureDetails

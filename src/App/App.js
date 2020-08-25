@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import Home from '../Home/Home'
+import Creatures from '../Creatures/Creatures'
+import CreatureDetails from '../Creatures/CreatureDetails'
 import './App.css'
 import puppies from '../data/puppy-data.js'
 import sharks from '../data/shark-data.js'
-import Creatures from '../Creatures/Creatures'
-import Home from '../Home/Home'
+
+import { Route } from 'react-router-dom'
 
 export default class App extends Component {
   render() {
@@ -14,7 +17,8 @@ export default class App extends Component {
           <a href="/sharks" className="nav">Sharks</a>
         </nav>
         <h1>Puppies or Sharks?</h1>
+				<Route exact path="/" render={Home} />
       </main>
-    );
+    )
   }
 }
