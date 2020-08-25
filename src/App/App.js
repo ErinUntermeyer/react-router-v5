@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
-import puppies from '../data/puppy-data.js';
-import sharks from '../data/shark-data.js';
-import Creatures from '../Creatures/Creatures';
-import Home from '../Home/Home';
+import React, { Component } from 'react'
+import './App.css'
+import puppies from '../data/puppy-data.js'
+import sharks from '../data/shark-data.js'
+import Creatures from '../Creatures/Creatures'
+import Home from '../Home/Home'
 
 export default class App extends Component {
   render() {
