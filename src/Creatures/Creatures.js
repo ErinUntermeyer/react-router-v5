@@ -1,10 +1,16 @@
 import React from 'react'
 import './image-display.css'
 
+import { Link } from 'react-router-dom'
+
 const Creatures = ({ data, name }) => {
   const creatureImages = data.map(creature => {
-    const { id, image } = creature
-    return <img src={image} key={id} id={id} className="app-img"/>
+    const { id, image, type } = creature
+		return (
+			<Link to={`/${type}/${id}`}>
+			<img src={image} key={id} id={id} className="app-img" />
+			</Link>
+		)
 	})
 	
   return (
@@ -13,7 +19,6 @@ const Creatures = ({ data, name }) => {
       {creatureImages}
     </>
   )
-
 }
 
 export default Creatures;
