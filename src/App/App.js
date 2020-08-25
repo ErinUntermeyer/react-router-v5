@@ -15,17 +15,21 @@ export default class App extends Component {
     return (
       <main className="App">
         <nav>
-          <NavLink to="/puppies" className="nav">Puppies</NavLink>
           <NavLink to="/" className="nav">Home</NavLink>
+          <NavLink to="/puppies" className="nav">Puppies</NavLink>
           <NavLink to="/sharks" className="nav">Sharks</NavLink>
           <NavLink to="/dolphins" className="nav">Dolphins</NavLink>
           <NavLink to="/unicorns" className="nav">Unicorns</NavLink>
         </nav>
         <h1>Puppies or Sharks?</h1>
 				<Route exact path="/" render={() => <Home />} />
+				<Route exact path="/puppies" render={() => <Creatures name="Puppies" data={puppies} />} />
+				<Route exact path="/sharks" render={() => <Creatures name="Sharks" data={sharks} />} />
+				<Route exact path="/dolphins" render={() => <Creatures name="Dolphins" data={dolphins} />} />
+				<Route exact path="/unicorns" render={() => <Creatures name="Unicorns" data={unicorns} />} />
 				<Route exact path="/:animals/:id" render={({ match }) => {
-				// find the puppy that matches the id passed in from match
-				// pass that puppy into the creature details component
+					// find the puppy that matches the id passed in from match
+					// pass that puppy into the creature details component
 					const { animals, id } = match.params
 					let data
 					if (animals === 'puppies') {
@@ -38,13 +42,9 @@ export default class App extends Component {
 						data = unicorns
 					}
 					const creatureToRender = data.find(creature => creature.id === +id) // the + is parsing
-					return <CreatureDetails {...creatureToRender} />}
-				}/>
-
-				<Route exact path="/puppies" render={() => <Creatures name="Puppies" data={puppies} />} />
-				<Route exact path="/sharks" render={() => <Creatures name="Sharks" data={sharks} />} />
-				<Route exact path="/dolphins" render={() => <Creatures name="Dolphins" data={dolphins} />} />
-				<Route exact path="/unicorns" render={() => <Creatures name="Unicorns" data={unicorns} />} />
+					return <CreatureDetails {...creatureToRender} />
+				}
+				} />
       </main>
     )
   }
